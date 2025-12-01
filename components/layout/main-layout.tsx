@@ -3,7 +3,7 @@
 import type { ReactNode } from "react"
 import { Navbar } from "./navbar"
 import { Sidebar } from "./sidebar"
-import { Chatbot } from "@/components/chatbot/chatbot"
+import { ChatWidget } from "@/components/chatbot/chat-widget"
 import { BannerNotification } from "@/components/notifications/banner-notification"
 
 interface MainLayoutProps {
@@ -15,11 +15,11 @@ export function MainLayout({ children }: MainLayoutProps) {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Sidebar />
-      <main className="pt-16 pl-0 md:pl-64 transition-all duration-200">
+      <main className="pt-16 pl-0 md:pl-[280px] transition-all duration-200">
         <BannerNotification />
         <div className="p-4 md:p-6 lg:p-8">{children}</div>
       </main>
-      <Chatbot />
+      <ChatWidget />
     </div>
   )
 }

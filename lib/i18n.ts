@@ -13,6 +13,11 @@ export const translations = {
     profile: "Profile",
     logout: "Logout",
     login: "Login",
+    teams: "Teams",
+    channels: "Channels",
+    documents: "Documents",
+    helpDesk: "Help Desk",
+    calendar: "Calendar",
 
     // Dashboard
     welcomeBack: "Welcome back",
@@ -23,6 +28,9 @@ export const translations = {
     departmentNews: "Department News",
     recentAnnouncements: "Recent Announcements",
     viewAll: "View All",
+    goodMorning: "Good morning",
+    goodAfternoon: "Good afternoon",
+    goodEvening: "Good evening",
 
     // Priorities
     urgent: "Urgent",
@@ -58,7 +66,7 @@ export const translations = {
     chatbotWelcome: "Hello! How can I help you today?",
 
     // Common
-    search: "Search",
+    search: "Search announcements, events, documents...",
     save: "Save",
     cancel: "Cancel",
     delete: "Delete",
@@ -70,6 +78,10 @@ export const translations = {
     readMore: "Read More",
     postedOn: "Posted on",
     by: "by",
+    close: "Close",
+    send: "Send",
+    message: "Message",
+    reply: "Reply",
 
     // Notifications
     notifications: "Notifications",
@@ -79,11 +91,102 @@ export const translations = {
     // Auth
     signInWithMicrosoft: "Sign in with Microsoft",
     signingIn: "Signing in...",
+    emailAddress: "Email Address",
+    password: "Password",
+    signIn: "Sign In",
+    orContinueWith: "Or continue with",
 
     // Roles
     roleAdmin: "Administrator",
     roleEmployee: "Employee",
     roleCeo: "CEO",
+
+    // Profile & Settings
+    editProfile: "Edit Profile",
+    personalInfo: "Personal Information",
+    fullName: "Full Name",
+    email: "Email",
+    phone: "Phone",
+    jobTitle: "Job Title",
+    department: "Department",
+    location: "Location",
+    bio: "Bio",
+    preferences: "Preferences",
+    theme: "Theme",
+    language: "Language",
+    emailNotifications: "Email Notifications",
+    pushNotifications: "Push Notifications",
+    darkMode: "Dark Mode",
+    lightMode: "Light Mode",
+    systemTheme: "System",
+    saveChanges: "Save Changes",
+    changePhoto: "Change Photo",
+    uploadPhoto: "Upload Photo",
+
+    // Help Desk
+    createTicket: "Create Ticket",
+    myTickets: "My Tickets",
+    allTickets: "All Tickets",
+    ticketTitle: "Title",
+    ticketDescription: "Description",
+    ticketCategory: "Category",
+    ticketPriority: "Priority",
+    ticketStatus: "Status",
+    open: "Open",
+    inProgress: "In Progress",
+    resolved: "Resolved",
+    closed: "Closed",
+    low: "Low",
+    medium: "Medium",
+    high: "High",
+    critical: "Critical",
+
+    // Documents
+    allDocuments: "All Documents",
+    recentDocuments: "Recent Documents",
+    sharedWithMe: "Shared with Me",
+    myDocuments: "My Documents",
+    upload: "Upload",
+    download: "Download",
+    folder: "Folder",
+    file: "File",
+
+    // Teams
+    allTeams: "All Teams",
+    myTeams: "My Teams",
+    teamMembers: "Team Members",
+    sendMessage: "Send Message",
+    newMessage: "New Message",
+    selectChannel: "Select a channel",
+    noMessages: "No messages yet",
+    typeMessage: "Type a message...",
+
+    // Calendar
+    addEvent: "Add Event",
+    editEvent: "Edit Event",
+    eventTitle: "Event Title",
+    eventDescription: "Event Description",
+    startTime: "Start Time",
+    endTime: "End Time",
+    allDay: "All Day",
+    recurring: "Recurring",
+    daily: "Daily",
+    weekly: "Weekly",
+    monthly: "Monthly",
+    quarterly: "Quarterly",
+    yearly: "Yearly",
+    attendees: "Attendees",
+    reminder: "Reminder",
+    pastEvents: "Past Events",
+    todayEvents: "Today's Events",
+    scheduleEvent: "Schedule Event",
+
+    // Quick Links
+    quickLinks: "Quick Links",
+    viewAnnouncements: "View Announcements",
+    checkEvents: "Check Events",
+    browseDocuments: "Browse Documents",
+    contactHelpDesk: "Contact Help Desk",
   },
   ja: {
     // Navigation
@@ -97,6 +200,11 @@ export const translations = {
     profile: "プロフィール",
     logout: "ログアウト",
     login: "ログイン",
+    teams: "チーム",
+    channels: "チャンネル",
+    documents: "ドキュメント",
+    helpDesk: "ヘルプデスク",
+    calendar: "カレンダー",
 
     // Dashboard
     welcomeBack: "おかえりなさい",
@@ -107,6 +215,9 @@ export const translations = {
     departmentNews: "部署ニュース",
     recentAnnouncements: "最近のお知らせ",
     viewAll: "すべて見る",
+    goodMorning: "おはようございます",
+    goodAfternoon: "こんにちは",
+    goodEvening: "こんばんは",
 
     // Priorities
     urgent: "緊急",
@@ -142,7 +253,7 @@ export const translations = {
     chatbotWelcome: "こんにちは！本日はどのようなご用件でしょうか？",
 
     // Common
-    search: "検索",
+    search: "お知らせ、イベント、ドキュメントを検索...",
     save: "保存",
     cancel: "キャンセル",
     delete: "削除",
@@ -154,6 +265,10 @@ export const translations = {
     readMore: "続きを読む",
     postedOn: "投稿日",
     by: "投稿者",
+    close: "閉じる",
+    send: "送信",
+    message: "メッセージ",
+    reply: "返信",
 
     // Notifications
     notifications: "通知",
@@ -163,11 +278,102 @@ export const translations = {
     // Auth
     signInWithMicrosoft: "Microsoftでサインイン",
     signingIn: "サインイン中...",
+    emailAddress: "メールアドレス",
+    password: "パスワード",
+    signIn: "サインイン",
+    orContinueWith: "または以下でサインイン",
 
     // Roles
     roleAdmin: "管理者",
     roleEmployee: "従業員",
     roleCeo: "CEO",
+
+    // Profile & Settings
+    editProfile: "プロフィール編集",
+    personalInfo: "個人情報",
+    fullName: "氏名",
+    email: "メール",
+    phone: "電話",
+    jobTitle: "役職",
+    department: "部署",
+    location: "所在地",
+    bio: "自己紹介",
+    preferences: "設定",
+    theme: "テーマ",
+    language: "言語",
+    emailNotifications: "メール通知",
+    pushNotifications: "プッシュ通知",
+    darkMode: "ダークモード",
+    lightMode: "ライトモード",
+    systemTheme: "システム",
+    saveChanges: "変更を保存",
+    changePhoto: "写真を変更",
+    uploadPhoto: "写真をアップロード",
+
+    // Help Desk
+    createTicket: "チケットを作成",
+    myTickets: "マイチケット",
+    allTickets: "すべてのチケット",
+    ticketTitle: "タイトル",
+    ticketDescription: "説明",
+    ticketCategory: "カテゴリ",
+    ticketPriority: "優先度",
+    ticketStatus: "ステータス",
+    open: "オープン",
+    inProgress: "進行中",
+    resolved: "解決済み",
+    closed: "クローズ",
+    low: "低",
+    medium: "中",
+    high: "高",
+    critical: "緊急",
+
+    // Documents
+    allDocuments: "すべてのドキュメント",
+    recentDocuments: "最近のドキュメント",
+    sharedWithMe: "共有されたもの",
+    myDocuments: "マイドキュメント",
+    upload: "アップロード",
+    download: "ダウンロード",
+    folder: "フォルダ",
+    file: "ファイル",
+
+    // Teams
+    allTeams: "すべてのチーム",
+    myTeams: "マイチーム",
+    teamMembers: "チームメンバー",
+    sendMessage: "メッセージを送信",
+    newMessage: "新規メッセージ",
+    selectChannel: "チャンネルを選択",
+    noMessages: "メッセージはまだありません",
+    typeMessage: "メッセージを入力...",
+
+    // Calendar
+    addEvent: "イベントを追加",
+    editEvent: "イベントを編集",
+    eventTitle: "イベントタイトル",
+    eventDescription: "イベント説明",
+    startTime: "開始時間",
+    endTime: "終了時間",
+    allDay: "終日",
+    recurring: "繰り返し",
+    daily: "毎日",
+    weekly: "毎週",
+    monthly: "毎月",
+    quarterly: "四半期ごと",
+    yearly: "毎年",
+    attendees: "参加者",
+    reminder: "リマインダー",
+    pastEvents: "過去のイベント",
+    todayEvents: "今日のイベント",
+    scheduleEvent: "イベントをスケジュール",
+
+    // Quick Links
+    quickLinks: "クイックリンク",
+    viewAnnouncements: "お知らせを見る",
+    checkEvents: "イベントを確認",
+    browseDocuments: "ドキュメントを閲覧",
+    contactHelpDesk: "ヘルプデスクに連絡",
   },
 }
 

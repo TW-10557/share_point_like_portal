@@ -1,36 +1,115 @@
 "use client"
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react"
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from "react"
 import type { User, Role, Department } from "./types"
-import { mockUser } from "./mock-data"
+import { useAppStore } from "./store"
 
 interface AuthContextType {
   user: User | null
   isLoading: boolean
-  login: () => Promise<void>
+  isAuthenticated: boolean
+  login: (email: string, password: string) => Promise<boolean>
+  loginWithMicrosoft: () => Promise<void>
   logout: () => void
   hasRole: (roles: Role[]) => boolean
   hasDepartment: (departments: Department[]) => boolean
+  updateProfile: (updates: Partial<User>) => void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(mockUser) // Start logged in for demo
+  const { user, setUser, updateUserProfile } = useAppStore()
   const [isLoading, setIsLoading] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const login = useCallback(async () => {
+  // Check authentication state on mount
+  useEffect(() => {
+    if (user && user.isAuthenticated) {
+      setIsAuthenticated(true)
+    }
+  }, [user])
+
+  const login = useCallback(
+    async (email: string, password: string): Promise<boolean> => {
+      setIsLoading(true)
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+
+      // Simple validation (in production, this would be a real API call)
+      if (email && password) {
+        const newUser: User = {
+          id: "1",
+          name: email
+            .split("@")[0]
+            .replace(/\./g, " ")
+            .replace(/\b\w/g, (l) => l.toUpperCase()),
+          email: email,
+          role: email.includes("admin") ? "admin" : email.includes("ceo") ? "ceo" : "employee",
+          department: "engineering",
+          avatar: "",
+          isAuthenticated: true,
+          jobTitle: "Team Member",
+          location: "Tokyo, Japan",
+          preferences: {
+            theme: "system",
+            language: "en",
+            emailNotifications: true,
+            pushNotifications: true,
+            showBirthday: true,
+          },
+        }
+        setUser(newUser)
+        setIsAuthenticated(true)
+        setIsLoading(false)
+        return true
+      }
+
+      setIsLoading(false)
+      return false
+    },
+    [setUser],
+  )
+
+  const loginWithMicrosoft = useCallback(async () => {
     setIsLoading(true)
-    // Simulate Microsoft Entra ID OAuth flow
-    // In production, this would redirect to Azure AD login
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setUser(mockUser)
+    // Simulate Microsoft OAuth flow
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
+    const mockMicrosoftUser: User = {
+      id: "ms-" + Date.now(),
+      name: "Microsoft User",
+      email: "user@company.onmicrosoft.com",
+      role: "admin",
+      department: "engineering",
+      avatar: "",
+      isAuthenticated: true,
+      jobTitle: "Senior Engineer",
+      location: "Tokyo, Japan",
+      phone: "+81 90-1234-5678",
+      bio: "Passionate about building great software.",
+      preferences: {
+        theme: "system",
+        language: "en",
+        emailNotifications: true,
+        pushNotifications: true,
+        showBirthday: true,
+      },
+    }
+
+    setUser(mockMicrosoftUser)
+    setIsAuthenticated(true)
     setIsLoading(false)
-  }, [])
+  }, [setUser])
 
   const logout = useCallback(() => {
     setUser(null)
-  }, [])
+    setIsAuthenticated(false)
+    // Clear local storage
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("sharepoint-portal-storage")
+    }
+  }, [setUser])
 
   const hasRole = useCallback(
     (roles: Role[]) => {
@@ -49,8 +128,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [user],
   )
 
+  const updateProfile = useCallback(
+    (updates: Partial<User>) => {
+      updateUserProfile(updates)
+    },
+    [updateUserProfile],
+  )
+
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, logout, hasRole, hasDepartment }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isLoading,
+        isAuthenticated,
+        login,
+        loginWithMicrosoft,
+        logout,
+        hasRole,
+        hasDepartment,
+        updateProfile,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )
